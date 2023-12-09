@@ -1,4 +1,7 @@
-n_atoms = 100
+using Molly 
+using GLMakie
+
+n_atoms = 20
 atoms = [Atom(mass=10.0u"g/mol", charge=1.0) for i in 1:n_atoms]
 boundary = RectangularBoundary(4.0u"nm")
 

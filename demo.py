@@ -1,3 +1,5 @@
+# ex. monte carlo from prof. emilie (phys 270 lab) 
+
 import random
 import numpy as np
 import pylab as plt
