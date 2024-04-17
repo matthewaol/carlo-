@@ -3,7 +3,7 @@ using Molly
 using GLMakie
 using Statistics
 # Properties to differentiate the elements: 
-n_atoms = 100
+n_atoms = 150
 atom_mass = 15.9994u"g/mol" # oxygen mass
 boundary = CubicBoundary(2.0u"nm") 
 atoms = [Atom(mass=atom_mass, σ=0.3u"nm", ϵ=.2u"kJ * mol^-1") for i in 1:n_atoms] 

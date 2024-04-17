@@ -11,7 +11,7 @@ atoms = [Atom(mass=atom_mass, σ=0.3u"nm", ϵ=.2u"kJ * mol^-1") for i in 1:n_ato
 # or van der waals radius. how close two nonbonding particles can get. Minimum distance till molecules start messing with each other
 # epsilon: well depth. how strongly they attract each other
 
-temp = 100.0u"K"
+temp = 10000u"K"
 
 coords = place_atoms(n_atoms ÷ 2, boundary; min_dist=0.3u"nm")
 for i in 1:length(coords)
@@ -61,8 +61,8 @@ sys = System(
 
 simulator = VelocityVerlet(
     dt=0.002u"ps",
-    #coupling=AndersenThermostat(temp, 1.0u"ps"),
-    BerendsenThermostat(temp, .002u"ps")
+    coupling=AndersenThermostat(temp, 1.0u"ps"),
+    #BerendsenThermostat(temp, .002u"ps"),
     #AndersenThermostat(temp, 1.0u"ps")
 
 )
@@ -75,7 +75,7 @@ mean_temp = mean(temps)
 mean_pressures = mean(pressures)
 
 pv = pressures * (2.0*10^-9)^2
-nrt = fill(100*8.134, length(pv)) .* temps 
+nrt = fill(50*.08314, length(pv)) .* temps 
 
 println("Mean temp is: ", mean_temp)
 println("Mean pressure is: ", mean_pressures)
